@@ -13,7 +13,7 @@ class Vuln_Scan():
     def vuln():
         from rich.console import Console #type: ignore
         console = Console ()
-        target = console.input("\n Enter url or file \n")
+        target = console.input("\n Enter url")
         file_name = f"{target}_vuln"
         #target_file = os.path(input("Insert path"))
         os.system(f"sudo nmap -sV --script=vuln {target} -Pn -D RND:6 --scan-delay 10 -oX {file_name}")

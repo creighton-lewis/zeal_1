@@ -18,28 +18,19 @@ class Sub_Find:
     def subdomain_enum():
         import subprocess
         target = console.input("\n Write target \n")
-        sub_list = "wordlists/sub_list"
+        sub_list = "/wordlists/sub_list"
         file_name1 = f"{target}_dnsbrute"
         subdomains = f"{target}_subdomains"
         ffuf_subs = f"{target}_ffuf"
         os.system(f"nmap -sV --script dns-brute,dns-service-discovery -sn -n {target} -oN {file_name1}")
-        if subprocess.run(["subfinder"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL):
-            print("Command exists and is executable.")
-            os.system(f"subfinder -d {target} -o {subdomains}")
-            print("Command does not exist in the PATH.")   
-        if subprocess.run(["subfinder"], check=False, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL):
-             console.print("Skipping subfinder ")
-        if subprocess.run(["assetfinder --subs-only {target}",check=True,stdout.subrpocess.DEVNULL,st
+        os.system(f"subfinder -d {target} -o {subdomains}") 
         os.system(f"assetfinder --subs-only {target} >> {subdomains}")
-        if os.path.exists("~/.config/ffuf/ffufrc"):
-            config = "~/.config/ffuf/ffufrc"
-            os.system(f"ffuf -u https://FUZZ.{target} -t 100 -w {sub_list} -s -of md -o {ffuf_subs} -config {config}")
-        elif os.path.exists == "False":
-            os.system(f"ffuf -u https://FUZZ.{target} -t 100 -w {sub_list} -s -of md -o {ffuf_subs}")
-        console.print("Unable to run Ffuf")
+        os.system(f"ffuf -w wordlists/sub_list:SUB -u https://SUB.{target} -t 100 -s -of md -o {ffuf_subs} -mc 200-299,302,307 -H "'User-Agent: Mozilla/5.0'"")
         try:
-                os.system(f"bin/url.sh{ffuf_subs} >> {subdomains}")
-                os.system(f"~/bin/url_extract.sh{ffuf_subs} >> {subdomains}")
+                os.system(f"./url.sh {ffuf_subs} >> {subdomains}")
+                os.system(f"~/bin/url.sh {ffuf_subs} >> {subdomains}")
+                os.system(f"~/bin/url.sh {ffuf_subs} >> {subdomains}")
+                os.system(f"~/bin/url_extract.sh {ffuf_subs} >> {subdomains}")
         except:
                 console.print("Unable to find files")
         os.system(f"rm {ffuf_subs}")

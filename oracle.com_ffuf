@@ -1,0 +1,21 @@
+# FFUF Report
+
+  Command line : `ffuf -maxtime 40 -w wordlists/sub_list:SUB -u https://SUB.oracle.com -t 100 -s -of md -o oracle.com_ffuf -mc 200-299,302,307 -H User-Agent: Mozilla/5.0`
+  Time: 2025-10-11T23:24:00-05:00
+
+  | SUB | URL | Redirectlocation | Position | Status Code | Content Length | Content Words | Content Lines | Content Type | Duration | ResultFile | ScraperData | Ffufhash
+  | :- | :-- | :--------------- | :---- | :------- | :---------- | :------------- | :------------ | :--------- | :----------- | :------------ | :-------- |
+  | static | https://static.oracle.com | https://www.oracle.com/ | 18 | 302 | 0 | 1 | 1 |  | 23.075417ms |  |  | 8bdbc12
+  | careers | https://careers.oracle.com | https://careers.oracle.com/en/sites/jobsearch | 93 | 302 | 357 | 14 | 7 | text/html;charset=utf-8 | 368.620625ms |  |  | 8bdbc5d
+  | chat | https://chat.oracle.com |  | 162 | 200 | 9283 | 450 | 351 | text/html; charset=utf-8 | 33.382625ms |  |  | 8bdbca2
+  | docs | https://docs.oracle.com |  | 161 | 200 | 485 | 22 | 12 | text/html | 41.452042ms |  |  | 8bdbca1
+  | cloud | https://cloud.oracle.com |  | 51 | 200 | 22348 | 1132 | 56 | text/html;charset=utf-8 | 64.565542ms |  |  | 8bdbc33
+  | go | https://go.oracle.com |  | 152 | 200 | 846 | 21 | 14 | text/html; charset=utf-8 | 76.921792ms |  |  | 8bdbc98
+  | surveys | https://surveys.oracle.com |  | 293 | 200 | 48912 | 4380 | 322 | text/html;charset=utf-8 | 832.96725ms |  |  | 8bdbc125
+  | my | https://my.oracle.com | https://mysites.oracle.com/home/ | 35 | 302 | 0 | 1 | 1 |  | 44.397209ms |  |  | 8bdbc23
+  | maps | https://maps.oracle.com | https://maps.oracle.com/elocation/index.html | 387 | 302 | 0 | 1 | 1 |  | 31.83275ms |  |  | 8bdbc183
+  | support | https://support.oracle.com | https://support.oracle.com/signin | 63 | 302 | 0 | 1 | 1 |  | 35.462167ms |  |  | 8bdbc3f
+  | forums | https://forums.oracle.com | https://forums.oracle.com/ords/r/apexds/community/home | 702 | 302 | 145 | 3 | 8 | text/html | 502.214042ms |  |  | 8bdbc2be
+  | auto | https://auto.oracle.com | https://auto.oracle.com/index.html | 826 | 302 | 0 | 1 | 1 |  | 73.007167ms |  |  | 8bdbc33a
+  | people | https://people.oracle.com | https://people.oracle.com/apex/f?p=8000 | 800 | 302 | 145 | 3 | 8 | text/html | 1.675418125s |  |  | 8bdbc320
+  

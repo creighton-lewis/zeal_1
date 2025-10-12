@@ -1,0 +1,19 @@
+# Nmap 7.98 scan initiated Sat Oct 11 22:57:51 2025 as: nmap -sV --script dns-brute,dns-service-discovery -sn -n -oN apollo.com_dnsbrute apollo.com
+Nmap scan report for apollo.com (151.101.3.10)
+Host is up (0.025s latency).
+Other addresses for apollo.com (not scanned): 151.101.67.10 151.101.131.10 151.101.195.10
+
+Host script results:
+| dns-brute: 
+|   DNS Brute-force hostnames: 
+|     www.apollo.com - 151.101.131.10
+|     www.apollo.com - 151.101.195.10
+|     www.apollo.com - 151.101.3.10
+|     www.apollo.com - 151.101.67.10
+|     www2.apollo.com - 18.208.125.13
+|     www2.apollo.com - 3.215.172.219
+|     www2.apollo.com - 3.92.120.28
+|     www2.apollo.com - 34.237.219.119
+|_    www2.apollo.com - 52.54.96.194
+
+# Nmap done at Sat Oct 11 22:57:54 2025 -- 1 IP address (1 host up) scanned in 3.15 seconds

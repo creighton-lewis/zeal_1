@@ -16965,10 +16965,6 @@ cffm
 cfi
 cfincludes
 cfx
-cgi-admin
-cgi-bin-church
-cgi-bin-debug
-cgi-bin-live
 mcart
 externallinks
 cgi-bin_ssl

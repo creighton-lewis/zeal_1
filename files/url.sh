@@ -1,3 +1,5 @@
+#!/bin/bash
+set -x
 file="$1"
 
 # Extract:

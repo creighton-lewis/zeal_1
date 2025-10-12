@@ -31,10 +31,15 @@ class Sub_Find:
         elif os.path.exists == "False":
             os.system(f"ffuf -u https://FUZZ.{target} -t 100 -w {sub_list} -s -of md -o {ffuf_subs}")
         console.print("Unable to run Ffuf")
-        os.system(f"bin/url.sh{ffuf_subs} >> {subdomains}")
+        try:
+                os.system(f"bin/url.sh{ffuf_subs} >> {subdomains}")
+                os.system(f"~/bin/url_extract.sh{ffuf_subs} >> {subdomains}")
+        except:
+                console.print("Unable to find files")
         os.system(f"rm {ffuf_subs}")
         console.print(f"Subdomains found in {subdomains} file.")
-        os.system(f"mv {file_name1} ..")
+        if os.path.exists(file_name1):   
+            os.system(f"mv {file_name1} ..")
         os.system(f"mv {subdomains} ..")
         os.chdir("..")
         shutil.move("file_name1", "results/file_name1")

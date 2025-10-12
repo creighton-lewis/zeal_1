@@ -25,7 +25,7 @@ class Sub_Find:
         os.system(f"nmap -sV --script dns-brute,dns-service-discovery -sn -n {target} -oN {file_name1}")
         os.system(f"subfinder -d {target} -o {subdomains}") 
         os.system(f"assetfinder --subs-only {target} >> {subdomains}")
-        os.system(f"ffuf -w wordlists/sub_list:SUB -u https://SUB.{target} -t 100 -s -of md -o {ffuf_subs} -mc 200-299,302,307 -H "'User-Agent: Mozilla/5.0'"")
+        os.system(f"ffuf -w wordlists/sub_list:SUB -u https://SUB.{target} -t 100 -s -of md -o {file} -mc 200-299,302,307 -H "'User-Agent: Mozilla/5.0'"")
         try:
                 os.system(f"./url.sh {ffuf_subs} >> {subdomains}")
                 os.system(f"~/bin/url.sh {ffuf_subs} >> {subdomains}")
@@ -37,10 +37,11 @@ class Sub_Find:
         console.print(f"Subdomains found in {subdomains} file.")
         if os.path.exists(file_name1):   
             os.system(f"mv {file_name1} ..")
-        os.system(f"mv {subdomains} ..")
+        if os.path.exists(subdomains):
+            os.system(f"mv {subdomains} ..")
         os.chdir("..")
-        shutil.move("file_name1", "results/file_name1")
-        shutil.move("subdomains", "results/subdomains")
+        shutil.move(f"{file_name1}", "results/file_name1")
+        shutil.move(f"subdomains", "results/subdomains")
     header()
     subdomain_enum()
     

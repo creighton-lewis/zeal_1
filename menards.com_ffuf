@@ -1,8 +1,0 @@
-# FFUF Report
-
-  Command line : `ffuf -maxtime 20 -w wordlists/sub_list:SUB -u https://SUB.menards.com -t 100 -s -of md -o menards.com_ffuf -mc 200-299,302,307 -H User-Agent: Mozilla/5.0`
-  Time: 2025-10-11T23:25:20-05:00
-
-  | SUB | URL | Redirectlocation | Position | Status Code | Content Length | Content Words | Content Lines | Content Type | Duration | ResultFile | ScraperData | Ffufhash
-  | :- | :-- | :--------------- | :---- | :------- | :---------- | :------------- | :------------ | :--------- | :----------- | :------------ | :-------- |
-  

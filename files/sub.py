@@ -25,23 +25,30 @@ class Sub_Find:
         os.system(f"nmap -sV --script dns-brute,dns-service-discovery -sn -n {target} -oN {file_name1}")
         os.system(f"subfinder -d {target} -o {subdomains}") 
         os.system(f"assetfinder --subs-only {target} >> {subdomains}")
-        os.system(f"ffuf -w wordlists/sub_list:SUB -u https://SUB.{target} -t 100 -s -of md -o {file} -mc 200-299,302,307 -H "'User-Agent: Mozilla/5.0'"")
+        os.system(f"ffuf -w wordlists/sub_list:SUB -u https://SUB.{target} -t 100 -s -of md -o {file_name1} -mc 200-299,302,307 -H "'User-Agent: Mozilla/5.0'"")
         try:
+                console.print("Extracting urls......")
                 os.system(f"./url.sh {ffuf_subs} >> {subdomains}")
-                os.system(f"~/bin/url.sh {ffuf_subs} >> {subdomains}")
-                os.system(f"~/bin/url.sh {ffuf_subs} >> {subdomains}")
-                os.system(f"~/bin/url_extract.sh {ffuf_subs} >> {subdomains}")
+        except: 
+                console.print ("Unable to extract urls")
+        try:
+                console.print("Checking which urls are active....")
+                os.system(f"chmod 700 url_active.sh")
+                os.system(f"./url_active.sh {subdomains}")
         except:
-                console.print("Unable to find files")
+                console.print("Unable to check which urls are active")
         os.system(f"rm {ffuf_subs}")
         console.print(f"Subdomains found in {subdomains} file.")
-        if os.path.exists(file_name1):   
-            os.system(f"mv {file_name1} ..")
-        if os.path.exists(subdomains):
-            os.system(f"mv {subdomains} ..")
-        os.chdir("..")
-        shutil.move(f"{file_name1}", "results/file_name1")
-        shutil.move(f"subdomains", "results/subdomains")
+        from ffuf import move_file
+        move_file(subdomains)
+        move_file(file_name1)
+        #if os.path.exists(file_name1):   
+         #   os.system(f"mv {file_name1} ..")
+        #if os.path.exists(subdomains):
+        #    os.system(f"mv {subdomains} ..")
+        #os.chdir("..")
+        #shutil.move(f"{file_name1}", "results/file_name1")
+        #shutil.move(f"subdomains", "results/subdomains")
     header()
     subdomain_enum()
     

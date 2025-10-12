@@ -8,4 +8,5 @@ file="$1"
 grep -Eo '((https?|ftp)://[a-zA-Z0-9./?=_%-]+|[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})' "$file" \
   | sed 's/[[:punct:]]*$//' \
   | sort -u
+  | sed -i '/https://' "$file"
 

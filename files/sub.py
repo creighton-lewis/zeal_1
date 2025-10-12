@@ -16,14 +16,20 @@ class Sub_Find:
     def header():
         console.print(f"""FINDING SUBDOMAINS...""", justify="left", style = "bold green")
     def subdomain_enum():
+        import subprocess
         target = console.input("\n Write target \n")
         sub_list = "wordlists/sub_list"
         file_name1 = f"{target}_dnsbrute"
         subdomains = f"{target}_subdomains"
         ffuf_subs = f"{target}_ffuf"
         os.system(f"nmap -sV --script dns-brute,dns-service-discovery -sn -n {target} -oN {file_name1}")
-        os.system(f"subfinder -d {target} -o {subdomains}")
-        #os.system(f"amass enum -d {target} -o {subdomains}")
+        if subprocess.run(["subfinder"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL):
+            print("Command exists and is executable.")
+            os.system(f"subfinder -d {target} -o {subdomains}")
+            print("Command does not exist in the PATH.")   
+        if subprocess.run(["subfinder"], check=False, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL):
+             console.print("Skipping subfinder ")
+        if subprocess.run(["assetfinder --subs-only {target}",check=True,stdout.subrpocess.DEVNULL,st
         os.system(f"assetfinder --subs-only {target} >> {subdomains}")
         if os.path.exists("~/.config/ffuf/ffufrc"):
             config = "~/.config/ffuf/ffufrc"

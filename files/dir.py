@@ -21,14 +21,7 @@ class Dir_Find:
         file_name = f"{target}_directories"
         #target = console.input("\n Write target \n")
         os.system(f"ffuf -u https://{target}/FUZZ -w {dir_list} -t 100 -s -of md -o {file_name} -p 0.10-0.3")
-        def extract_urls():
-            from urlextract import URLExtract
-            extractor = URLExtract()
-            with open('filename', 'r') as file:
-                text = file.read()
-                urls = extractor.find_urls(text)
-                print(urls)
-        extract_urls(file_name)
+        os.system(f"")
     dir_enum()
 
 def main():

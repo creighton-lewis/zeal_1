@@ -16,9 +16,12 @@ class Vuln_Scan():
         target = console.input("\n Enter url or file \n")
         file_name = f"{target}_vuln"
         #target_file = os.path(input("Insert path"))
-        os.system(f"sudo nmap sV --script=vuln {target} -Pn -D RND:6 -f --scan-delay 10 -oX {file_name}")
-        os.system(f"mv {file_name} .. /results")
-        os.system(f"uv sicat.py -nm {file_name} --exploitdb --packetstorm --nvd")
+        os.system(f"sudo nmap -sV --script=vuln {target} -Pn -D RND:6 --scan-delay 10 -oX {file_name}")
+        if os.path.exists(f"{file_name}"):
+            try:
+                os.system(f"uv run vulny.py -nm {file_name} --exploitdb --pstorm --nvd")
+            except Exception as e:
+                console.print(f"Error: {e}", style = "bold red")
     vuln()
         
 def main():

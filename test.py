@@ -32,6 +32,7 @@ def tables():
         table.add_row("9. Check Host Status")
         table.add_row("10. Start Server")
         table.add_row("11. Broken Links")
+        table.add_row("12. Check File Upload Vulnerability")
         console.print(table)
         table = Table(box=box.SIMPLE, expand = True)
         table.add_column("Exploiting", justify="left", style="cyan bold", no_wrap=False, overflow="crop", ratio=1)

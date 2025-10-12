@@ -1,6 +1,7 @@
 import os 
 import requests # type: ignore
 import subprocess 
+import shutil
 import rich #type: ignore 
 from rich.table import Table #type: ignore 
 from colorama import Fore #type: ignore 
@@ -16,25 +17,28 @@ class Sub_Find:
         console.print(f"""FINDING SUBDOMAINS...""", justify="left", style = "bold green")
     def subdomain_enum():
         target = console.input("\n Write target \n")
-        sub_list = os.path.abspath("wordlists/sub_list")
-        file_name = {target}.subs
-        os.system(f"nmap -sV --script dns-brute,dns-service-discovery -sn -n {target} -oN {target}_dnsbrute")
-        os.system(f"subfinder -d {target} -o {target}_subdomains")
-        os.system(f"amass enum -d {target} -o {file_name}")
-        os.system(f"assetfinder --subs-only {target} >> {target}_subdomains")
-        os.system(f"ffuf -u https://FUZZ.{target} -t 100 -w {sub_list} -s -of md -o {file_name}")
-        def extract_urls(file_name):
-            from urlextract import URLExtract
-            extractor = URLExtract()
-            with open(f"{file_name}", 'r', encoding='utf-8') as file:
-                text = file.read()
-            urls = extractor.find_urls(text)
-            output_file = f"{file_name}.urls"
-            with open(output_file, 'w', encoding='utf-8') as f:
-                for url in urls:
-                    f.write(url + '\n')
-            print(f"Extracted {len(urls)} URLs and saved to {output_file}")
-        extract_urls()
+        sub_list = "wordlists/sub_list"
+        file_name1 = f"{target}_dnsbrute"
+        subdomains = f"{target}_subdomains"
+        ffuf_subs = f"{target}_ffuf"
+        os.system(f"nmap -sV --script dns-brute,dns-service-discovery -sn -n {target} -oN {file_name1}")
+        os.system(f"subfinder -d {target} -o {subdomains}")
+        #os.system(f"amass enum -d {target} -o {subdomains}")
+        os.system(f"assetfinder --subs-only {target} >> {subdomains}")
+        if os.path.exists("~/.config/ffuf/ffufrc"):
+            config = "~/.config/ffuf/ffufrc"
+            os.system(f"ffuf -u https://FUZZ.{target} -t 100 -w {sub_list} -s -of md -o {ffuf_subs} -config {config}")
+        elif os.path.exists == "False":
+            os.system(f"ffuf -u https://FUZZ.{target} -t 100 -w {sub_list} -s -of md -o {ffuf_subs}")
+        console.print("Unable to run Ffuf")
+        os.system(f"bin/url.sh{ffuf_subs} >> {subdomains}")
+        os.system(f"rm {ffuf_subs}")
+        console.print(f"Subdomains found in {subdomains} file.")
+        os.system(f"mv {file_name1} ..")
+        os.system(f"mv {subdomains} ..")
+        os.chdir("..")
+        shutil.move("file_name1", "results/file_name1")
+        shutil.move("subdomains", "results/subdomains")
     header()
     subdomain_enum()
     

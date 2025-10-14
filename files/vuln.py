@@ -16,7 +16,7 @@ class Vuln_Scan():
         target = console.input("\n Enter url")
         file_name = f"{target}_vuln"
         #target_file = os.path(input("Insert path"))
-        os.system(f"sudo nmap -sV {target} -Pn -D RND:6 --scan-delay 10 -oX {file_name}")
+        os.system(f"sudo nmap --script vuln,auth nmap -sV {target} -Pn -D RND:6 --scan-delay 10 -oX {file_name}")
         if os.path.exists(f"{file_name}"):
             try:
                 path = os.path.abspath(file_name)

@@ -21,7 +21,7 @@ class Tech_Scan:
     def get_input():
         target = console.input("\n Write target \n" )
         def tech_enum():
-            os.system (f" uv run waf00f")
+            os.system (f" uv run waf00f {target}")
             os.system(f"nmap -sV {target} --top-ports 40 -D RND:5 -Pn")
             os.system(f"nuclei -u {target}  -t nuclei-templates/dns")
             os.system(f"nuclei -u {target} -t nuclei-templates/http")

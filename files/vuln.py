@@ -20,7 +20,7 @@ class Vuln_Scan():
         if os.path.exists(f"{file_name}"):
             try:
                 path = os.path.abspath(file_name)
-                os.system(f"uv run vuln/vulny.py -nm {path} --exploitdb --pstorm --nvd")
+                os.system(f"uv run exploitr/exploitr.py -nm {path} --exploitdb --pstorm --nvd")
             except Exception as e:
                 console.print(f"Error: {e}", style = "bold red")
     vuln()

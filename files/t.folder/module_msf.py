@@ -7,16 +7,12 @@ class MsfModule:
         pass
 
     def find(self, keyword = "", version=""):
-        try:
             datamod = []
             keyword = f"{keyword.lower()} {version.lower()}"
-            o = open("files/msf_copy.json", "r").read()
+            o = open("msf_copy.json", "r").read()
             modules = json.loads(o)
             result = [data for data in modules if keyword in data['title']]
             return result
-        except:
-            return False
-            pass
 
 class ExploitDB:
     def __init__(self):
@@ -35,7 +31,6 @@ class ExploitDB:
 class NvdDB:
     def __init__(self):
         pass
-    
 
     def find(self, keyword = "", version = ""):
         keyword = f"{keyword} {version}"

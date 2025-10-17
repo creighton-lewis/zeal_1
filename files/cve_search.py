@@ -4,7 +4,7 @@ import yaml  # type:ignore
 from rich.console import Console  # type:ignore
 from rich.table import Table  # type:ignore
 from rich.progress import track  # type:ignore
-from banner import print_banner
+#`from banner import print_banner
 
 console = Console()
 
@@ -14,7 +14,7 @@ def fetch_cve(cve_id: str):
     console.print(f"Fetching [bold cyan]{cve_id}[/bold cyan] from {url} ...")
 
     try:
-        response = requests.get(url, timeout=10)
+        response = requests.get(url, timeout=20)
         response.raise_for_status()
         data = response.json()
 
@@ -43,7 +43,7 @@ def fetch_cve(cve_id: str):
 
     except requests.RequestException as e:
         console.print(f"[bold red]Failed to fetch CVE data:[/bold red] {e}")
-
+       
 def main():
     cve_id = console.input("\nEnter CVE ID (e.g. CVE-2023-12345): ")
     fetch_cve(cve_id.strip())

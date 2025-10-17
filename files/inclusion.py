@@ -1,8 +1,21 @@
 import sys
 import os 
-import requests 
+import datetime
+import requests #type:ignore
 # Let user define the base url that they are interested  in 
-base_url = input("Enter base url")
+def clear_console():
+    """Clears the console window."""
+    os.system('cls' if os.name == 'nt' else 'clear')
 def inclusion():
-    os.path.abspath("wordlists/file_upload")
-    os.system(f"ffuf -u https://{base_url}FUZZ -w wordlist/file_upload")
+    #response = input("Decide on using a folder or looping through a file")
+    #if response == 1:
+    target = input("Enter base url")
+    company = target.split('.',1)[0]
+    print(company)
+    wordlist = "wordlists/injections"
+    #with open ('wordlists/injections', 'r') as file:
+     #    content = file.read()
+    requests
+    os.system(f"ffuf -u https://{target}/FUZZ -w {wordlist} -t 100  -s -of md -mc 200,201  -o {company}")
+    os.system(f"rm {company}")
+inclusion()

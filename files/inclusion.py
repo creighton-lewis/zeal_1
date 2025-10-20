@@ -16,6 +16,6 @@ def inclusion():
     #with open ('wordlists/injections', 'r') as file:
      #    content = file.read()
     requests
-    os.system(f"ffuf -u https://{target}/FUZZ -w {wordlist} -t 100  -s -of md -mc 200,201  -o {company}")
+    os.system(f"ffuf -u https://{target}/FUZZ -w {wordlist} -t 100 -v  -of md -mc 200,201,202,300,302 -o {company}")
     os.system(f"rm {company}")
 inclusion()

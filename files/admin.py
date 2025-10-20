@@ -49,7 +49,7 @@ class Admin():
               file_name = f"{target}-admin-page"
               wl = "wordlists/adm_list"
               try: 
-                os.system(f"ffuf -u https://{target}/FUZZ -w {wl} -t 100 -mc 200 -of md -o {file_name} -recursion-depth 2 -or -s")
+                os.system(f"ffuf -u https://{target}/FUZZ -w {wl} -t 100 -mc 200 -of md -o {file_name} -v -or")
               except:
                 os.system (f"Unable to find admin directories my lord, please try again next time")
         if selection !="1" or "2":

@@ -1,0 +1,11 @@
+# FFUF Report
+
+  Command line : `ffuf -w wordlists/sub_list:SUB -u https://SUB.irs.gov -maxtime 20 -t 100 -s -of md -o irs.gov_ffuf -mc 200-299,302,307 -H User-Agent: Mozilla/5.0`
+  Time: 2025-10-21T00:34:35-05:00
+
+  | SUB | URL | Redirectlocation | Position | Status Code | Content Length | Content Words | Content Lines | Content Type | Duration | ResultFile | ScraperData | Ffufhash
+  | :- | :-- | :--------------- | :---- | :------- | :---------- | :------------- | :------------ | :--------- | :----------- | :------------ | :-------- |
+  | www | https://www.irs.gov |  | 1 | 200 | 99620 | 24361 | 1420 | text/html; charset=UTF-8 | 46.619ms |  |  | 7925e1
+  | forms | https://forms.irs.gov | https://forms.irs.gov/app/pod/basicSearch/search | 312 | 302 | 0 | 1 | 1 |  | 37.944708ms |  |  | 7925e138
+  | jobs | https://jobs.irs.gov |  | 141 | 200 | 39850 | 7187 | 812 | text/html; charset=UTF-8 | 98.789417ms |  |  | 7925e8d
+  

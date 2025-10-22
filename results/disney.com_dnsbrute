@@ -1,0 +1,43 @@
+# Nmap 7.98 scan initiated Mon Oct 20 17:57:54 2025 as: nmap -sV --script dns-brute,dns-service-discovery -sn -n -oN disney.com_dnsbrute disney.com
+Nmap scan report for disney.com (130.211.198.204)
+Host is up (0.048s latency).
+
+Host script results:
+| dns-brute: 
+|   DNS Brute-force hostnames: 
+|     mx1.disney.com - 192.195.66.26
+|     mx1.disney.com - 204.128.192.17
+|     news.disney.com - 23.193.200.228
+|     news.disney.com - 23.193.200.250
+|     news.disney.com - 2600:1418:1000:3::173b:a9c7
+|     news.disney.com - 2600:1418:1000:3::173b:a9ce
+|     app.disney.com - 208.218.3.17
+|     apps.disney.com - 34.110.155.89
+|     apps.disney.com - 2600:1901::84f4:0:0:0:80
+|     download.disney.com - 192.195.66.78
+|     beta.disney.com - 204.127.235.62
+|     beta.disney.com - 204.127.235.63
+|     mail.disney.com - 204.128.192.15
+|     mail2.disney.com - 204.128.192.16
+|     www.disney.com - 23.193.200.228
+|     www.disney.com - 23.193.200.250
+|     chat.disney.com - 208.21.175.249
+|     secure.disney.com - 23.193.200.228
+|     secure.disney.com - 23.193.200.250
+|     www.disney.com - 2600:1418:1000:3::173b:a9c7
+|     www.disney.com - 2600:1418:1000:3::173b:a9ce
+|     secure.disney.com - 2600:1418:1000:3::173b:a9c7
+|     secure.disney.com - 2600:1418:1000:3::173b:a9ce
+|     www2.disney.com - 34.110.155.89
+|     www2.disney.com - 2600:1901::84f4:0:0:0:80
+|     shop.disney.com - 34.110.155.89
+|     shop.disney.com - 2600:1901::84f4:0:0:0:80
+|     sip.disney.com - 139.104.36.102
+|     help.disney.com - 23.38.109.196
+|     help.disney.com - 23.38.109.197
+|     help.disney.com - 2600:1418:1000:5::17d9:378f
+|     help.disney.com - 2600:1418:1000:5::17d9:379a
+|     home.disney.com - 34.110.155.89
+|_    home.disney.com - 2600:1901::84f4:0:0:0:80
+
+# Nmap done at Mon Oct 20 17:57:58 2025 -- 1 IP address (1 host up) scanned in 4.30 seconds

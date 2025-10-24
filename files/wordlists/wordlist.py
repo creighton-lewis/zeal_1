@@ -6,6 +6,7 @@ if os.path.abspath("dir_list") == None:
     os.system(f"curl -s https://raw.githubusercontent.com/3ndG4me/KaliLists/refs/heads/master/wfuzz/webservices/ws-dirs.txt >> dir_list")
     os.system(f"curl -s https://raw.githubusercontent.com/danielmiessler/SecLists/refs/heads/master/Fuzzing/LDAP.Fuzzing.txt >> dir_list")
     os.system(f"curl -s https://raw.githubusercontent.com/danielmiessler/SecLists/refs/heads/master/Discovery/Web-Content/api/api-endpoints.txt >> dir_list")
+    os.system(f" sort -u dir_list -o dir_list")
 if os.path.abspath("sub_list") == None:
     os.system(f"curl -s https://raw.githubusercontent.com/rajesh6927/subdomain-bruteforce-wordlist/refs/heads/main/Subdomain-wordlist.txt >> sub_list")
     os.system(f"curl -s https://raw.githubusercontent.com/n0kovo/n0kovo_subdomains/refs/heads/main/n0kovo_subdomains_large.txt >> sub_list")

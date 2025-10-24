@@ -1,0 +1,6 @@
+Usage: url_extract.sh file
+http://partner.lensa.com/login
+https://connect.lensa.com
+https://partner.lensa.com
+https://SUB.lensa.com
+lensa.com

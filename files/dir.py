@@ -15,14 +15,14 @@ def clear_console():
 
 class Dir_Find:
     def dir_enum():
-        console.print("""FINDING DIRECTORIES...""", justify = "left", style = "bold green")
-        target = console.input("\n Write target \n")
+        console.print("FINDING ADMIN FILES...", style = "bold cyan" , justify = "left")
+        target = console.input("Write target:")
         dir_list = "wordlists/dir_list"
         file_name = f"{target}_directories"
-        #target = console.input("\n Write target \n")
-        #dir_list = "wordlists/dir_list"
         os.system(f"ffuf -u https://{target}/FUZZ -w {dir_list} -t 100 -s -of md -o {file_name} -p 0.10-0.30 -mc 200 -or")
         os.system(f"./url.sh {file_name}")
+        from results import move_file
+        move_file(file_name)
     dir_enum()
 
 def main():

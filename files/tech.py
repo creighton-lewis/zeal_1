@@ -17,7 +17,7 @@ def clear_console():
   #  print(print_banner)
 class Tech_Scan:
     def header(): 
-        console.print(""" =======Tech Scan ======""", style = "bold green", justify="left")
+        console.print(""" =======Tech Scan ======""", style = "bold cyan", justify="left")
     def get_input():
         target = console.input("\n Write target \n" )
         def tech_enum():

@@ -28,7 +28,7 @@ class Admin():
         if selection == "1":
                 fir_dir = os.getcwd()
                 print(fir_dir)
-                subprocess.run(['cd' ,  '~/'])
+                subprocess.run(['cd' ,  '~/']) #should home directory?
                 os.system(f"eza -l")
                 file_name = console.input("Enter file with urls you want to find directories for")
                 if os.path.join(file_name) == True:
@@ -49,7 +49,7 @@ class Admin():
               file_name = f"{target}-admin-page"
               wl = "wordlists/adm_list"
               try: 
-                os.system(f"ffuf -u https://{target}/FUZZ -w {wl} -t 100 -mc 200 -of md -o {file_name} -v -or")
+                os.system(f"ffuf -u https://{target}/FUZZ -w {wl} -t 100 -mc 200 -of md -oX {file_name} -v -or")
               except:
                 os.system (f"Unable to find admin directories my lord, please try again next time")
         if selection !="1" or "2":

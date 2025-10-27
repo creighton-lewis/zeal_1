@@ -31,7 +31,8 @@ class GetPOC:
         if resp.status_code == 404:
             print("❌  No references available")
             return
-
+        print(resp)
+        """ 
         # Store it locally first
         file_name = f"{code}.md"
         with open(file_name, "wb") as fh:
@@ -40,7 +41,7 @@ class GetPOC:
         # ----- 2️⃣  Move it to the results folder -------------------------------
         move_file(file_name)
         print(f"✅  Saved and moved {file_name}")
-
+        """
 def main() -> None:
     poc = GetPOC()
     poc.get_poc()            # runs the whole flow

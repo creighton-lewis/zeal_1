@@ -16,9 +16,9 @@ def move_file(file_name: str | None = None) -> None:
     os.makedirs(os.path.dirname(dst), exist_ok=True)
 
     # Copy the file
-    shutil.copy(src, dst)
+    shutil.move(src, dst)
 
-    print(f"Copied {src} → {dst}")
+    print(f"Movied {src} → {dst}")
 
 # Do **not** run anything on import – let `poc.py` decide when to run.
 # if __name__ == "__main__":

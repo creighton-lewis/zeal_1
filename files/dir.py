@@ -19,7 +19,7 @@ class Dir_Find:
         target = console.input("Write target:")
         dir_list = "wordlists/dir_list"
         file_name = f"{target}_directories"
-        os.system(f"ffuf -u https://{target}/FUZZ -w {dir_list} -t 100 -s -of md -o {file_name} -p 0.10-0.30 -mc 200 -or")
+        os.system(f"ffuf -u https://{target}/FUZZ -w {dir_list} -t 100 -s -of md -o {file_name} -p 0.10-0.30 -mc 200-299 -or")
         os.system(f"./url.sh {file_name}")
         from results import move_file
         move_file(file_name)

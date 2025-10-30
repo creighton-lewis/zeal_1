@@ -11,6 +11,7 @@ if os.path.abspath("sub_list") == None:
     os.system(f"curl -s https://raw.githubusercontent.com/rajesh6927/subdomain-bruteforce-wordlist/refs/heads/main/Subdomain-wordlist.txt >> sub_list")
     os.system(f"curl -s https://raw.githubusercontent.com/n0kovo/n0kovo_subdomains/refs/heads/main/n0kovo_subdomains_large.txt >> sub_list")
     os.system(f"sort -u sub_list -o sub_list")
+    subprocess.run(['grep', '-Ev', "[0-9]", 'sub_list', '>>', 'short_sub_list'])
 if os.path.abspath("usr_list") == None: 
     os.system(f"curl -s https://raw.githubusercontent.com/danielmiessler/SecLists/refs/heads/master/Usernames/sap-default-usernames.txt >> usr_list")
 if os.path.abspath("adm_list"):

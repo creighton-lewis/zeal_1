@@ -34,13 +34,13 @@ class Sub_Find:
             try:
                     console.print("Extracting urls......")
                     os.system(f"~/bin/url_extract.py {ffuf_subs} >> {subdomains}")
-                    os.system(f"../url_extract.py {ffuf_subs} >> {subdomains}")
+                    os.system(f"uv run ../url_extract.py -i {ffuf_subs} -s >> {subdomains}")
             except: 
                     console.print ("Unable to extract urls")
             try:
                     console.print("Checking which urls are active....")
                     os.system(f"~/bin/url_active.sh {subdomains}")
-                    os.system(f"~../url_active.sh {subdomains}")
+                    os.system(f"~../url_active.sh {subdomains} ")
 
             except:
                     console.print("Unable to check which urls are active")

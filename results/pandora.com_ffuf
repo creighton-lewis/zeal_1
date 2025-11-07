@@ -1,0 +1,8 @@
+# FFUF Report
+
+  Command line : `ffuf -w wordlists/sub_list:SUB -u https://SUB.pandora.com -maxtime 50 -t 100 -s -of md -o pandora.com_ffuf -mc 200-299,302,307 -H User-Agent: Mozilla/5.0 -or`
+  Time: 2025-11-07T13:52:14-06:00
+
+  | SUB | URL | Redirectlocation | Position | Status Code | Content Length | Content Words | Content Lines | Content Type | Duration | ResultFile | ScraperData | Ffufhash
+  | :- | :-- | :--------------- | :---- | :------- | :---------- | :------------- | :------------ | :--------- | :----------- | :------------ | :-------- |
+  

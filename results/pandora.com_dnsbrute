@@ -1,0 +1,37 @@
+# Nmap 7.98 scan initiated Fri Nov  7 13:46:52 2025 as: nmap -sV --script dns-brute,dns-service-discovery -sn -n -oN pandora.com_dnsbrute pandora.com
+Nmap scan report for pandora.com (199.116.164.229)
+Host is up (0.040s latency).
+Other addresses for pandora.com (not scanned): 2620:106:e001:f00d::e7
+
+Host script results:
+| dns-brute: 
+|   DNS Brute-force hostnames: 
+|     stats.pandora.com - 199.116.164.168
+|     stats.pandora.com - 199.116.164.169
+|     stats.pandora.com - 208.85.41.174
+|     stats.pandora.com - 208.85.41.175
+|     stats.pandora.com - 2620:106:e001:f00d::45
+|     stats.pandora.com - 2620:106:e001:f00d::46
+|     stats.pandora.com - 2620:106:e007:f00f::53
+|     stats.pandora.com - 2620:106:e007:f00f::54
+|     ads.pandora.com - 104.16.92.80
+|     ads.pandora.com - 104.16.93.80
+|     ads.pandora.com - 104.16.94.80
+|     ads.pandora.com - 104.16.95.80
+|     ads.pandora.com - 104.16.96.80
+|     adserver.pandora.com - 199.116.164.239
+|     adserver.pandora.com - 2620:106:e001:f00d::d1
+|     news.pandora.com - 199.223.234.37
+|     blog.pandora.com - 192.0.66.192
+|     ns.pandora.com - 199.116.165.40
+|     ns2.pandora.com - 199.116.165.40
+|     ns3.pandora.com - 208.85.40.26
+|     blog.pandora.com - 2a04:fa87:fffd::c000:42c0
+|     www.pandora.com - 199.116.164.229
+|     www.pandora.com - 2620:106:e001:f00d::e7
+|     smtp.pandora.com - 199.116.167.25
+|     help.pandora.com - 3.146.43.227
+|     help.pandora.com - 3.146.43.228
+|_    help.pandora.com - 3.146.43.229
+
+# Nmap done at Fri Nov  7 13:51:24 2025 -- 1 IP address (1 host up) scanned in 271.60 seconds

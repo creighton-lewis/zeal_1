@@ -22,17 +22,20 @@ class Sub_Find:
         subdomains = f"{target}_subdomains"
         ffuf_subs = f"{target}_ffuf"
         os.system(f"nmap -sV --script dns-brute,dns-service-discovery -sn -n {target} -oN {file_name1}")
-        try:
-            os.system(f"subfinder -d {target} -o {subdomains}") 
-        except:
-            console.print("unable to find or install subfinder")
+        def subfinder():
+            try:
+                os.system(f"subfinder -d {target} -o {subdomains}") 
+            except:
+                console.print("unable to find or install subfinder")
+        subfinder()
         #os.system(f"assetfinder --subs-only {target} >> {subdomains}")
         def ffuf():
             console.print("Running ffuf....")
         try:
-            os.system(f"ffuf -w wordlists/sub_list:SUB -u https://SUB.{target} -maxtime 1800 -t 100 -s -of md -o {ffuf_subs} -mc 200-299,302,307 -H "'User-Agent: Mozilla/5.0'" -or")
+            os.system(f"ffuf -w wordlists/sub_list:SUB -u https://SUB.{target} -maxtime 50 -t 100 -s -of md -o {ffuf_subs} -mc 200-299,302,307 -or -H "'User-Agent: Mozilla/5.0'" ")
         except: 
              console.print("Unable to run ffuf, please try again ")
+        ffuf()
         def clean_subs():
             try:
                     console.print("Extracting urls......")
@@ -41,7 +44,7 @@ class Sub_Find:
                     console.print ("Unable to extract urls")
             try:
                     console.print("Checking which urls are active....")
-                    os.system(f"~../url_active.sh {subdomains} ")
+                    os.system(f"../url_active.sh {subdomains} ")
 
             except:
                     console.print("Unable to check which urls are active")

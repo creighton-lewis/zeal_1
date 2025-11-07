@@ -1,0 +1,43 @@
+# Nmap 7.98 scan initiated Fri Nov  7 13:42:08 2025 as: nmap -sV --script dns-brute,dns-service-discovery -sn -n -oN spotify.com_dnsbrute spotify.com
+Nmap scan report for spotify.com (35.186.224.24)
+Host is up (0.040s latency).
+Other addresses for spotify.com (not scanned): 2600:1901:1:7c5::
+
+Host script results:
+| dns-brute: 
+|   DNS Brute-force hostnames: 
+|     news.spotify.com - 35.186.224.24
+|     news.spotify.com - 2600:1901:1:7c5::
+|     ads.spotify.com - 35.186.224.24
+|     ads.spotify.com - 2600:1901:1:7c5::
+|     images.spotify.com - 199.232.210.248
+|     images.spotify.com - 199.232.214.248
+|     images.spotify.com - 2a04:4e42:4e::760
+|     images.spotify.com - 2a04:4e42:4f::760
+|     ap.spotify.com - 34.158.255.62
+|     download.spotify.com - 199.232.210.250
+|     download.spotify.com - 199.232.214.250
+|     download.spotify.com - 2a04:4e42:4e::762
+|     download.spotify.com - 2a04:4e42:4f::762
+|     log.spotify.com - 35.186.224.24
+|     log.spotify.com - 2600:1901:1:7c5::
+|     mail.spotify.com - 142.250.191.115
+|     mail.spotify.com - 2607:f8b0:4009:80a::2013
+|     beta.spotify.com - 35.186.224.24
+|     beta.spotify.com - 2600:1901:1:7c5::
+|     blog.spotify.com - 35.186.224.24
+|     blog.spotify.com - 2600:1901:1:7c5::
+|     shop.spotify.com - 35.186.224.24
+|     shop.spotify.com - 2600:1901:1:7c5::
+|     help.spotify.com - 35.186.224.24
+|     help.spotify.com - 2600:1901:1:7c5::
+|     cms.spotify.com - 35.186.224.24
+|     cms.spotify.com - 2600:1901:1:7c5::
+|     dev.spotify.com - 35.186.224.24
+|     dev.spotify.com - 2600:1901:1:7c5::
+|     www.spotify.com - 35.186.224.24
+|     www.spotify.com - 2600:1901:1:7c5::
+|     manage.spotify.com - 35.186.224.24
+|_    manage.spotify.com - 2600:1901:1:7c5::
+
+# Nmap done at Fri Nov  7 13:44:18 2025 -- 1 IP address (1 host up) scanned in 130.14 seconds

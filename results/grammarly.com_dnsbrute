@@ -1,0 +1,40 @@
+# Nmap 7.98 scan initiated Fri Nov  7 13:09:01 2025 as: nmap -sV --script dns-brute,dns-service-discovery -sn -n -oN grammarly.com_dnsbrute grammarly.com
+Nmap scan report for grammarly.com (99.84.203.59)
+Host is up (0.015s latency).
+Other addresses for grammarly.com (not scanned): 99.84.203.84 99.84.203.125 99.84.203.33
+
+Host script results:
+| dns-brute: 
+|   DNS Brute-force hostnames: 
+|     id.grammarly.com - 18.212.45.74
+|     id.grammarly.com - 3.94.42.247
+|     id.grammarly.com - 44.196.107.133
+|     app.grammarly.com - 18.210.83.112
+|     app.grammarly.com - 3.215.205.180
+|     app.grammarly.com - 44.205.94.84
+|     apps.grammarly.com - 18.211.197.208
+|     apps.grammarly.com - 3.228.229.56
+|     apps.grammarly.com - 52.0.226.195
+|     apps.grammarly.com - 54.86.2.77
+|     apps.grammarly.com - 98.85.118.221
+|     apps.grammarly.com - 98.89.71.149
+|     auth.grammarly.com - 107.22.87.20
+|     auth.grammarly.com - 3.210.143.255
+|     auth.grammarly.com - 3.217.194.85
+|     auth.grammarly.com - 3.220.203.76
+|     auth.grammarly.com - 3.222.58.108
+|     auth.grammarly.com - 3.81.182.7
+|     auth.grammarly.com - 54.162.42.31
+|     auth.grammarly.com - 72.44.46.131
+|     blog.grammarly.com - 18.212.45.74
+|     blog.grammarly.com - 3.94.42.247
+|     blog.grammarly.com - 44.196.107.133
+|     www.grammarly.com - 99.84.203.125
+|     www.grammarly.com - 99.84.203.33
+|     www.grammarly.com - 99.84.203.59
+|     www.grammarly.com - 99.84.203.84
+|     demo.grammarly.com - 52.0.184.39
+|     demo.grammarly.com - 52.200.43.51
+|_    demo.grammarly.com - 98.83.125.82
+
+# Nmap done at Fri Nov  7 13:09:06 2025 -- 1 IP address (1 host up) scanned in 4.76 seconds

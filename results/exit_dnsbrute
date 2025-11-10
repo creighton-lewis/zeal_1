@@ -1,4 +1,0 @@
-# Nmap 7.98 scan initiated Sat Nov  1 11:16:59 2025 as: nmap -sV --script dns-brute,dns-service-discovery -sn -n -oN exit_dnsbrute exit
-Failed to resolve "exit".
-WARNING: No targets were specified, so 0 hosts scanned.
-# Nmap done at Sat Nov  1 11:17:00 2025 -- 0 IP addresses (0 hosts up) scanned in 1.17 seconds

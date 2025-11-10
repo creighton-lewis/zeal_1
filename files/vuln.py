@@ -31,9 +31,9 @@ class Vuln_Scan:
         file_name_2 = f"{target}_vuln_nikto"
         
         console.print(f"\nScanning target: {target}", style="bold yellow")
-        #os.system(f"nikto -h {target} -no404 -Tuning 0,a,5,6,7,8,9,4 -Display 3 -evasion all -o {target}_nikto -Format csv")
+        os.system(f"nikto -h {target} -no404 -Tuning 0,a,5,6,7,8,9,4 -Display 3 -evasion all -o {target}_nikto -Format csv")
         os.system(f"sudo nmap --script vuln,auth -sV {target} -Pn -D RND:6 --scan-delay 10 -oX {file_name}")
-        
+        os.system(f"nuclei -u {target} -all")
         if os.path.exists(f"{file_name}"):
             try:
                 path = os.path.abspath(file_name)
@@ -43,7 +43,7 @@ class Vuln_Scan:
             try:
                 os.system(f"uv run exploitr/exploitr.py -nm ../results/{file_name} --all")
             except:
-                print("Unsucessful")
+                print("Unsucessful exploitr attempt: try later")
         from results import move_file 
         move_file(file_name)
 

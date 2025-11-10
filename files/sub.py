@@ -17,22 +17,26 @@ class Sub_Find:
         console.print(f"""FINDING SUBDOMAINS...""", justify="left", style = "bold cyan")
         import subprocess
         target = console.input("Write target:")
+        r = requests.get(f"https://{target}")
+        if r.status_code != 200:
+            print("Url not recognized")
         sub_list = "wordlists/sub_list"
         file_name1 = f"{target}_dnsbrute"
         subdomains = f"{target}_subdomains"
         ffuf_subs = f"{target}_ffuf"
         os.system(f"nmap -sV --script dns-brute,dns-service-discovery -sn -n {target} -oN {file_name1}")
         def subfinder():
-            try:
-                os.system(f"subfinder -d {target} -o {subdomains}") 
-            except:
-                console.print("unable to find or install subfinder")
+                try:
+                    os.system(f"subfinder -d {target} -o {subdomains}") 
+                except:
+                    console.print("unable to find or install subfinder")     
         subfinder()
         #os.system(f"assetfinder --subs-only {target} >> {subdomains}")
         def ffuf():
             console.print("Running ffuf....")
         try:
-            os.system(f"ffuf -w wordlists/sub_list:SUB -u https://SUB.{target} -maxtime 50 -t 100 -s -of md -o {ffuf_subs} -mc 200-299,302,307 -or -H "'User-Agent: Mozilla/5.0'" ")
+            console.print("Running ffuf")
+            os.system(f"ffuf -w wordlists/short_sub:SUB -u https://SUB.{target} -maxtime 1800 -t 100 -s -of md -o {ffuf_subs} -mc 200-299,302,307 -or -H "'User-Agent: Mozilla/5.0'" ")
         except: 
              console.print("Unable to run ffuf, please try again ")
         ffuf()
@@ -59,11 +63,11 @@ class Sub_Find:
                 move_file(file_name1)
                 console.print(f"{file_name1} file successfully moved to results")
             except:
-                console.print("Unable to move {file_name1} file")
+                console.print("Unable to move {file_name1} file",style="red")
             try: 
                 move_file(ffuf_subs)
             except:
-                console.print("Unable to move {ffuf_subs} file")
+                console.print("Unable to move {ffuf_subs} file", style="red")
         clean_subs()
     subdomain_enum()
     

@@ -27,7 +27,7 @@ class Sub_Find:
         os.system(f"nmap -sV --script dns-brute,dns-service-discovery -sn -n {target} -oN {file_name1}")
         def subfinder():
                 try:
-                    os.system(f"subfinder -d {target} -o {subdomains}") 
+                    os.system(f"subfinder -d {target} -nW -o {subdomains}") 
                 except:
                     console.print("unable to find or install subfinder")     
         subfinder()
@@ -36,7 +36,7 @@ class Sub_Find:
             console.print("Running ffuf....")
         try:
             console.print("Running ffuf")
-            os.system(f"ffuf -w wordlists/short_sub:SUB -u https://SUB.{target} -maxtime 1800 -t 100 -s -of md -o {ffuf_subs} -mc 200-299,302,307 -or -H "'User-Agent: Mozilla/5.0'" ")
+            os.system(f"ffuf -w wordlists/short_sub:SUB -u https://SUB.{target} -maxtime 1800 -t 150 -s -of md -o {ffuf_subs} -mc 200-299,302,307 -or -H "'User-Agent: Mozilla/5.0'" ")
         except: 
              console.print("Unable to run ffuf, please try again ")
         ffuf()

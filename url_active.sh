@@ -22,7 +22,7 @@ while IFS= read -r host; do
     echo "Checking $host..."
     
     # Using httpx for comprehensive web service check
-    result=$(echo "$host" | httpx -silent -timeout 3 -status-code -mc 200,201,202,203,204,301,302,307,308 -sc 2>/dev/null)
+    result=$(echo "$host" | httpx -silent -rt -timeout 1 -status-code -mc 200,201,202,203,204,301,302,307,308 -sc 2>/dev/null)
     
     if [ -n "$result" ]; then
         echo -e "${GREEN}Host $host is active. [Status: $result]${NC}"

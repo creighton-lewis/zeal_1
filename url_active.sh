@@ -6,7 +6,8 @@ if [ -z "$1" ] || [ ! -f "$1" ]; then
 fi
 
 file="$1"
-temp_file="temp_active_hosts.txt"
+basename=${file##*/} 
+temp_file="tah${basename}.txt"
 GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m'
@@ -15,14 +16,14 @@ NC='\033[0m'
 
 echo "Checking hosts from '$file'..."
 echo ""
-
+echo "$basename"
 while IFS= read -r host; do
     [ -z "$host" ] && continue
     
     echo "Checking $host..."
     
     # Using httpx for comprehensive web service check
-    result=$(echo "$host" | httpx -silent -rt -timeout 1 -status-code -mc 200,201,202,203,204,301,302,307,308 -sc 2>/dev/null)
+    result=$(echo "$host" | httpx -stats -td -tls-grab -rt -timeout 1 -status-code -mc 200,201,202,203,204,301,302,307,308 -sc 2>/dev/null)
     
     if [ -n "$result" ]; then
         echo -e "${GREEN}Host $host is active. [Status: $result]${NC}"
